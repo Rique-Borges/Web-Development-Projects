@@ -1,0 +1,49 @@
+.amogus-body{
+    background-color: red;
+    width: 240px;
+    height: 350px;
+    border-top-left-radius:70% ;
+    border-top-right-radius:70% ;
+    border-bottom-left-radius: 20% ;
+    border-bottom-right-radius: 20%;
+    position: relative;
+    top: 100px;
+    left: 100px;
+}
+.amogus-legs{
+    background-color: red;
+    width: 90px;
+    height: 130px;
+    position: absolute;
+    top: 308px;
+    border-bottom-left-radius: 30% ;
+    border-bottom-right-radius: 30% ;
+}
+#right{
+    right: 0px ;
+}
+#left{
+    left: 0px;
+}
+.amogus-backpack{
+    background-color: red;
+    height: 200px;
+    width: 75px;
+    position: absolute;
+    left: -50px;
+    top: 100px;
+}
+.amogus-visor{
+    background-color: #7cc7dc;
+    height: 90px;
+    width: 180px;
+    border-color: black;
+    border-width: 20px;
+    border-style: solid;
+    border-radius: 40%;
+    position: absolute;
+    top: 80px;
+    right: -50px;
+}
+
+ 
