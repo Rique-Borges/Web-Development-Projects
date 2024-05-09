@@ -1,0 +1,5 @@
+<h1 (click)="onTitleClicked()"
+>Hello, {{ data.title }}</h1>
+<p>Congratulations! Your app is running. 🎉</p>
+<input type="text" (keyup)="onKeyUp(titleInput.value)" class="demo" [value]="data.title" #titleInput>
+<router-outlet> </router-outlet>

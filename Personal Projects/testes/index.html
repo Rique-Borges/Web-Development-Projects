@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Concessionária</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2 class="mb-4">Calculadora de Concessionária</h2>
+      <div class="form-group">
+        <label for="custoFabrica">Custo de Fabricação:</label>
+        <input
+          type="number"
+          class="form-control"
+          id="custoFabrica"
+          placeholder="Informe o custo de fabricação"
+        />
+      </div>
+      <div class="form-group">
+        <label for="percDistribuidor">Percentual do Distribuidor:</label>
+        <input
+          type="number"
+          class="form-control"
+          id="percDistribuidor"
+          placeholder="Informe o percentual do distribuidor"
+        />
+      </div>
+      <div class="form-group">
+        <label for="percImpostos">Percentual de Impostos:</label>
+        <input
+          type="number"
+          class="form-control"
+          id="percImpostos"
+          placeholder="Informe o percentual de impostos"
+        />
+      </div>
+      <button type="button" class="btn btn-primary" onclick="concessionaria()">
+        Calcular
+      </button>
+      <div class="mt-3">
+        <p>Valor Final: <span id="valorFinal"></span></p>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      let num1 = 10;
+      let num2 = 100;
+
+      function add() {
+        let sum = parseInt(num1) + parseInt(num2);
+        alert("A soma da adição é: " + sum);
+      }
+
+      function multiply() {
+        let product = parseInt(num1) * parseInt(num2);
+        alert("O produto da multiplicação é: " + product);
+      }
+
+      function subtract() {
+        let difference = parseInt(num1) - parseInt(num2);
+        alert("O resto da subtração é: " + difference);
+      }
+
+      function divide() {
+        let quotient = parseInt(num1) / parseInt(num2);
+        alert("O quociente da divisão é: " + quotient);
+      }
+
+      function count() {
+        let counter = num1;
+        function updateCounter() {
+          console.log("O número é: " + counter);
+          counter++;
+          if (counter <= num2) {
+            setTimeout(updateCounter, 100);
+          }
+        }
+        updateCounter();
+      }
+
+      function multiplicationTable() {
+        let numberForTable = prompt("Digite um número para a tabuada:");
+        let tableText = "";
+        for (let i = 0; i <= 10; i++) {
+          let tableProduct = parseInt(numberForTable) * i;
+          console.log(numberForTable + " * " + i + " = " + tableProduct);
+        }
+      }
+
+      function calculator() {
+  let operacao;
+  
+  do {
+    operacao = prompt("Escolha a operação:\n1. Somar\n2. Subtrair\n3. Multiplicar\n4. Dividir\n5. Sair");
+
+    switch (operacao) {
+      case "1":
+        sum();
+        break;
+      case "2":
+        difference();
+        break;
+      case "3":
+        product();
+        break;
+      case "4":
+        quotient();
+        break;
+      case "5":
+        alert("Saindo da calculadora.");
+        break;
+      default:
+        alert("Opção inválida. Por favor, escolha novamente.");
+    }
+  } while (operacao !== "5");
+}
+
+function sum() {
+  let nCalc1 = parseFloat(prompt("Digite o primeiro número:"));
+  let nCalc2 = parseFloat(prompt("Digite o segundo número:"));
+  let cSoma = nCalc1 + nCalc2;
+  alert(`${nCalc1} + ${nCalc2} = ${cSoma}`);
+}
+
+function difference() {
+  let nCalc1 = parseFloat(prompt("Digite o primeiro número:"));
+  let nCalc2 = parseFloat(prompt("Digite o segundo número:"));
+  let cSubtracao = nCalc1 - nCalc2;
+  alert(`${nCalc1} - ${nCalc2} = ${cSubtracao}`);
+}
+
+function product() {
+  let nCalc1 = parseFloat(prompt("Digite o primeiro número:"));
+  let nCalc2 = parseFloat(prompt("Digite o segundo número:"));
+  let cMultiplicacao = nCalc1 * nCalc2;
+  alert(`${nCalc1} * ${nCalc2} = ${cMultiplicacao}`);
+}
+
+function quotient() {
+  let nCalc1 = parseFloat(prompt("Digite o primeiro número:"));
+  let nCalc2 = parseFloat(prompt("Digite o segundo número:"));
+  
+  if (nCalc2 !== 0) {
+    let cDivisao = nCalc1 / nCalc2;
+    alert(`${nCalc1} / ${nCalc2} = ${cDivisao}`);
+  } else {
+    alert("Não é possível dividir por zero.");
+  }
+}
+
+
+
+
+      function list() {
+        let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let evenList = [];
+        for (let i = 0; i < 10; i++) {
+          let isEven = parseInt(list[i]) % 2;
+          if (isEven == 0) {
+            evenList.push(list[i]);
+          }
+        }
+        console.log("Lista completa: " + list);
+        console.log("Lista de números pares: " + evenList);
+      }
+      function concessionaria() {
+        let custoFabrica = parseFloat(
+          document.getElementById("custoFabrica").value
+        );
+        let percDistribuidor = parseFloat(
+          document.getElementById("percDistribuidor").value
+        );
+        let percImpostos = parseFloat(
+          document.getElementById("percImpostos").value
+        );
+        let valorFinal =
+          custoFabrica +
+          custoFabrica * (percDistribuidor / 100) +
+          custoFabrica * (percImpostos / 100);
+        document.getElementById("valorFinal").innerText =
+          "R$: " + valorFinal.toFixed(2);
+      }
+      add();
+      multiply();
+      subtract();
+      divide();
+      count();
+      list();
+      multiplicationTable();
+      calculator();
+      
+
+    </script>
+  </body>
+</html>
